@@ -16,6 +16,11 @@ class ParsingAvito:
         list_prices = [i.text for i in prices]
         return list_prices
 
+    def get_titles(self):
+        titles = self.driver.find_elements(By.CLASS_NAME, 'iva-item-title-py3i_')
+        list_titles = [i.text for i in titles]
+        return list_titles
+
     def out_driver(self):
         self.driver.close()
         self.driver.quit()

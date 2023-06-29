@@ -5,6 +5,7 @@ def main():
     methods_parser = ParsingAvito(version_main=114, url='https://www.avito.ru/chita/kvartiry/sdam/posutochno'
                                                         '/-ASgBAgICAkSSA8gQ8AeSUg')
     prices = methods_parser.get_prices()
+    titles = methods_parser.get_titles()
     methods_parser.out_driver()
 
 
