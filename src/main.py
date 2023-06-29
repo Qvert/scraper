@@ -1,12 +1,10 @@
-import undetected_chromedriver as uc
 from src.class_data import ParsingAvito
 
 
 def main():
-    options = uc.ChromeOptions()
-    options.add_argument("--headless")
-    driver = uc.Chrome(version_main=114, options=options)
-    methods_parser = ParsingAvito(url='https://www.avito.ru/chita?q=геймпад', driver=driver)
+    methods_parser = ParsingAvito(version_main=114, url='https://www.avito.ru/chita/kvartiry/sdam/posutochno'
+                                                        '/-ASgBAgICAkSSA8gQ8AeSUg')
+    print(methods_parser.get_prices())
 
 
 if __name__ == '__main__':
