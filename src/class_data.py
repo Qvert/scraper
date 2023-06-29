@@ -14,6 +14,8 @@ class ParsingAvito:
     def get_prices(self):
         prices = self.driver.find_elements(By.CLASS_NAME, 'price-price-JP7qe')
         list_prices = [i.text for i in prices]
+        return list_prices
+
+    def out_driver(self):
         self.driver.close()
         self.driver.quit()
-        return list_prices
