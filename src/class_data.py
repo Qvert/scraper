@@ -3,7 +3,7 @@ import undetected_chromedriver as uc
 
 
 class ParsingAvito:
-    def __init__(self, url, version_main=None):
+    def __init__(self, url: str, version_main=None):
         self.url = url
         self.version_main = version_main
         self.option = uc.ChromeOptions()
@@ -11,16 +11,16 @@ class ParsingAvito:
         self.driver = uc.Chrome(version_main=self.version_main, options=self.option)
         self.driver.get(self.url)
 
-    def get_prices(self):
+    def get_prices(self) -> list:
         prices = self.driver.find_elements(By.CLASS_NAME, 'price-price-JP7qe')
         list_prices = [i.text for i in prices]
         return list_prices
 
-    def get_titles(self):
+    def get_titles(self) -> list:
         titles = self.driver.find_elements(By.CLASS_NAME, 'iva-item-title-py3i_')
         list_titles = [i.text for i in titles]
         return list_titles
 
-    def out_driver(self):
+    def out_driver(self) -> None:
         self.driver.close()
         self.driver.quit()
