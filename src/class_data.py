@@ -23,7 +23,7 @@ class ParsingAvito:
 
     def get_links(self) -> list:
         links = self.driver.find_elements(By.CLASS_NAME, 'iva-item-title-py3i_')
-        list_links = [i.get_attribute('href') for i in links]
+        list_links = [i.find_element(By.TAG_NAME, 'a').get_attribute('href') for i in links]
         return list_links
 
     def out_driver(self) -> None:
