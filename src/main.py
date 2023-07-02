@@ -1,5 +1,4 @@
 from class_data import ParsingAvito
-import csv
 
 
 def main():
@@ -7,13 +6,8 @@ def main():
                                                         '/-ASgBAgICAkSSA8gQ8AeSUg')
     prices = methods_parser.get_prices()
     titles = methods_parser.get_titles()
+    links = methods_parser.get_links()
     methods_parser.out_driver()
-
-    with open('result.csv', mode='w', encoding='utf-8') as file_w:
-        file_writer = csv.writer(file_w, delimiter=';')
-        file_writer.writerow(['Цена', 'Название'])
-        for price, title in zip(prices, titles):
-            file_writer.writerow([price, title])
 
 
 if __name__ == '__main__':
